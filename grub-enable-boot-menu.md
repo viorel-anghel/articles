@@ -42,7 +42,8 @@ Ati observat de ce *NIMIC* la boot?
 
 -----
 
-Pentru ca exista fisierul `/etc/default/grub.d/50-cloudimg-settings.cfg` care, fiind inclus dupa, 
+Pentru ca exista fisierul `/etc/default/grub.d/50-cloudimg-settings.cfg` care, 
+fiind inclus (`Sourcing file...`) dupa, 
 suprascrie setarile definite in `/etc/default/grub`! Asa ca acesta trebuie modificat in acest caz 
 si evident apoi totul merge perfect.
 
