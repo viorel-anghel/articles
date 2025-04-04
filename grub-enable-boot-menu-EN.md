@@ -39,7 +39,7 @@ Did you notice why *NOTHING* at boot?"
 
 Because of the file `/etc/default/grub.d/50-cloudimg-settings.cfg` which is included (`Sourcing file...`) afterwards, 
  it overrides the settings defined in `/etc/default/grub`! 
-So this needs to be modified in this case, and obviously, then everything works perfectly.
+So this one has to be modified and obviously, then everything works perfectly.
 
 What surprised me is that absolutely none of the articles online mentions this. The moral:
 skill #1 for devops/sysadmin: always read and understand what is displayed on the screen.
