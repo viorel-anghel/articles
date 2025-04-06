@@ -9,7 +9,7 @@ To remind myself how to do this, I searched the internet and found dozens of pag
 
 1. edit the file `/etc/default/grub`
 2. change from `GRUB_TIMEOUT=0` to `GRUB_TIMEOUT=10` or other number, that's seconds
-3. few pages mention adding `GRUB_TIMEOUT_STYLE=menu`, obviously, this is also necessary because the default is `GRUB_TIMEOUT_STYLE=hidden`!
+3. few pages mention adding `GRUB_TIMEOUT_STYLE=menu`, this is also necessary because the default is `GRUB_TIMEOUT_STYLE=hidden`!
 3. then run `update-grub`, then `reboot` and follow the console booting
 
 Aaand... *NOTHING*! It booted exactly the same as before, without the boot menu! Wtf?
