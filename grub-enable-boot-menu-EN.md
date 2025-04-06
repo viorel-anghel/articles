@@ -1,7 +1,7 @@
 
 # Grub enable boot menu
 
-Yesterday, I started debugging a Kubernetes cluster that had issues with kube-proxy after an upgrade. It was throwing some errors related to iptables, and the pod was restarting infinitely. I concluded that I should downgrade the kernel, and this is on some local VMs running in Proxmox
+Yesterday, I started debugging a Kubernetes cluster that had issues with kube-proxy after an upgrade. It was throwing some errors related to iptables, and the pod was restarting infinitely (`CrashLoopBackOff`). I concluded that I should downgrade the kernel, and this is on some local VMs running in Proxmox
 
 Fortunately Proxmox has a nice feature in the web interface for accessing the VM consoles. Unfortunately, many modern Linux distributions no longer display that boot menu where you can choose to boot with an older kernel. Well, you can press some key at the exact second when it boots and that menu appears, a silly thing that saves a few seconds at boot. So I decided to reactivate the boot menu so that I can choose to boot with an older kernel.
 
@@ -37,11 +37,12 @@ Did you notice why *NOTHING* at boot?"
 
 -----
 
-Because of the file `/etc/default/grub.d/50-cloudimg-settings.cfg` which is included (`Sourcing file...`) afterwards, 
+Because the file `/etc/default/grub.d/50-cloudimg-settings.cfg` is included (`Sourcing file...`) afterwards, 
  it overrides the settings defined in `/etc/default/grub`! 
 So this one has to be modified and obviously, then everything works perfectly.
 
-What surprised me is that absolutely none of the articles online mentions this. The moral:
-skill #1 for devops/sysadmin: always read and understand what is displayed on the screen.
+What surprised me is that absolutely none of the articles online mentions `/etc/default/grub.d/`. The moral:
+**skill #1 for devops/sysadmin: always read and understand what is displayed on the screen**.
 
+And booting with an older kernel solved the initial problem with kube-proxy CrashLoopBackOff.
 
